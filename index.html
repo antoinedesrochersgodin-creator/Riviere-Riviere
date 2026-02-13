@@ -10,50 +10,62 @@
       height: 100vh;
       width: 100vw;
       background-color: #e6f2ff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       overflow: hidden;
       font-family: 'Inter', sans-serif;
     }
 
-    /* GIF centré */
+    /* Titre en haut, centré */
+    h1 {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      text-align: center;
+      color: rgb(51, 51, 51);
+      font-weight: 400;
+      font-size: 48px; /* ajustable */
+      margin: 0;
+      z-index: 20;
+    }
+
+    /* GIF centré, au-dessus des images */
     .center-gif {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 10;
-      width: 300px; /* ajuste la taille si tu veux */
+      width: 300px;
       height: auto;
     }
 
-    /* Nuage d'images autour */
+    /* Images flottantes autour */
     .floating-image {
       position: absolute;
-      width: 150px;  /* taille des images autour */
+      width: 300px; /* taille similaire à la grille précédente */
       height: auto;
       animation: float 20s ease-in-out infinite alternate;
+      z-index: 5; /* derrière le GIF */
     }
 
-    /* Animation très lente et subtile */
     @keyframes float {
       0% { transform: translate(0, 0) rotate(0deg); }
-      50% { transform: translate(10px, -10px) rotate(1deg); }
-      100% { transform: translate(0, 10px) rotate(0deg); }
+      50% { transform: translate(15px, -15px) rotate(1deg); }
+      100% { transform: translate(0, 15px) rotate(0deg); }
     }
 
-    /* Chaque image peut avoir une animation différente pour varier le mouvement */
-    .img1 { top: 10%; left: 20%; animation-duration: 25s; }
+    /* Positions et durées différentes pour chaque image */
+    .img1 { top: 10%; left: 10%; animation-duration: 25s; }
     .img2 { top: 70%; left: 15%; animation-duration: 30s; }
     .img3 { top: 20%; left: 75%; animation-duration: 35s; }
     .img4 { top: 60%; left: 65%; animation-duration: 28s; }
     .img5 { top: 40%; left: 50%; animation-duration: 32s; }
-    /* ajoute autant que tu veux */
   </style>
 </head>
 
 <body>
+
+  <!-- Titre -->
+  <h1>Rivière Rivière</h1>
 
   <!-- GIF centré -->
   <img class="center-gif" src="images/extrait1.gif" alt="GIF central">
