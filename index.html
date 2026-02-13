@@ -62,7 +62,7 @@ h1 {
 <script>
 // Lecture audio après interaction (clic) pour contourner le blocage autoplay
 const audio = document.getElementById('background-audio');
-audio.volume = 0.2;
+audio.volume = 1;
 
 document.body.addEventListener('click', () => {
   if (audio.paused) audio.play();
