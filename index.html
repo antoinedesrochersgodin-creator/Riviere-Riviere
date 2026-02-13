@@ -1,29 +1,94 @@
-<body>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Blue Gallery Animated</title>
 
-  <!-- Audio en boucle -->
-  <audio autoplay loop muted id="background-audio">
-    <source src="sonRR.wav" type="audio/wav">
-    Votre navigateur ne supporte pas l'audio.
-  </audio>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      width: 100vw;
+      background-color: #4a90e2; /* bleu plus foncé */
+      overflow: hidden;
+      font-family: Helvetica, sans-serif;
+    }
+
+    /* Titre en haut */
+    h1 {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      text-align: center;
+      color: #1f3d7a; /* bleu foncé pour le texte */
+      font-weight: 400;
+      font-size: 48px;
+      margin: 0;
+      z-index: 20;
+    }
+
+    /* Images et GIF flottantes */
+    .floating-image {
+      position: absolute;
+      width: 300px;
+      height: auto;
+      animation: float 25s ease-in-out infinite alternate;
+      z-index: 5;
+    }
+
+    @keyframes float {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      50% { transform: translate(15px, -15px) rotate(1deg); }
+      100% { transform: translate(0, 15px) rotate(0deg); }
+    }
+
+    /* Positions initiales différentes pour toutes les images et GIF */
+    .img1 { top: 5%; left: 5%; animation-duration: 28s; }
+    .img2 { top: 10%; left: 65%; animation-duration: 32s; }
+    .img3 { top: 35%; left: 15%; animation-duration: 30s; }
+    .img4 { top: 60%; left: 25%; animation-duration: 34s; }
+    .img5 { top: 70%; left: 55%; animation-duration: 26s; }
+    .img6 { top: 20%; left: 35%; animation-duration: 31s; }
+    .img7 { top: 45%; left: 70%; animation-duration: 33s; }
+    .img8 { top: 55%; left: 10%; animation-duration: 29s; }
+    .img9 { top: 15%; left: 50%; animation-duration: 27s; }
+    .img10 { top: 65%; left: 80%; animation-duration: 35s; }
+
+    /* GIF traité comme image flottante */
+    .gif { width: 300px; z-index: 6; }
+  </style>
+</head>
+
+<body>
 
   <!-- Titre -->
   <h1>Rivière Rivière</h1>
 
-  <!-- GIF centré -->
-  <img class="center-gif" src="images/extrait1.gif" alt="GIF central">
+  <!-- Audio -->
+  <audio autoplay loop id="background-audio">
+    <source src="sonRR.wav" type="audio/wav">
+    Votre navigateur ne supporte pas l'audio.
+  </audio>
+  <script>
+    const audio = document.getElementById('background-audio');
+    audio.volume = 0.2;
+    audio.muted = false;
+  </script>
 
-  <!-- Images flottantes autour -->
+  <!-- Images flottantes -->
   <img class="floating-image img1" src="images/Z63_7171.jpg" alt="">
   <img class="floating-image img2" src="images/Z63_7097.jpg" alt="">
   <img class="floating-image img3" src="images/Z63_7082.jpg" alt="">
   <img class="floating-image img4" src="images/Z63_7051.jpg" alt="">
   <img class="floating-image img5" src="images/Z63_6971.jpg" alt="">
-
-  <script>
-    // On règle le volume à un niveau raisonnable
-    const audio = document.getElementById('background-audio');
-    audio.volume = 0.2; // 0.0 à 1.0
-    audio.muted = false;
-  </script>
+  <img class="floating-image img6" src="images/Z63_6946.jpg" alt="">
+  <img class="floating-image img7" src="images/Z63_6894.jpg" alt="">
+  <img class="floating-image img8" src="images/Z63_6892.jpg" alt="">
+  <img class="floating-image img9" src="images/Z63_6788.jpg" alt="">
+  <img class="floating-image img10" src="images/Z63_6761.jpg" alt="">
+  
+  <!-- GIF traité comme image flottante -->
+  <img class="floating-image gif" src="images/extrait1.gif" alt="GIF">
 
 </body>
+</html>
