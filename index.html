@@ -8,23 +8,35 @@
     body {
       margin: 0;
       background-color: #e6f2ff;
-    <div class="gallery">
-  <img src="images/Z63_7171.jpg" alt="">
-  <img src="images/Z63_7097.jpg" alt="">
-  <img src="images/Z63_7082.jpg" alt="">
-  <img src="images/Z63_7051.jpg" alt="">
-  <img src="images/Z63_6971.jpg" alt="">
-  <img src="images/Z63_6946.jpg" alt="">
-  <img src="images/Z63_6894.jpg" alt="">
-  <img src="images/Z63_6892.jpg" alt="">
-  <img src="images/Z63_6788.jpg" alt="">
-  <img src="images/Z63_6761.jpg" alt="">
-</div>
+    }
 
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
   </style>
 </head>
 
 <body>
+  <div class="gallery">
+    <img src="images/Z63_7171.jpg" alt="">
+    <img src="images/Z63_7097.jpg" alt="">
+    <img src="images/Z63_7082.jpg" alt="">
+    <img src="images/Z63_7051.jpg" alt="">
+    <img src="images/Z63_6971.jpg" alt="">
+    <img src="images/Z63_6946.jpg" alt="">
+    <img src="images/Z63_6894.jpg" alt="">
+    <img src="images/Z63_6892.jpg" alt="">
+    <img src="images/Z63_6788.jpg" alt="">
+    <img src="images/Z63_6761.jpg" alt="">
+  </div>
 </body>
 </html>
