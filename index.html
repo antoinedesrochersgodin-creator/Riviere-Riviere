@@ -1,42 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Blue Site</title>
+  <title>Blue Gallery Animated</title>
 
   <style>
     body {
       margin: 0;
+      height: 100vh;
+      width: 100vw;
       background-color: #e6f2ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
     }
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      padding: 40px;
-    }
-
-    .gallery img {
-      width: 100%;
+    /* GIF centré */
+    .center-gif {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      width: 300px; /* ajuste la taille si tu veux */
       height: auto;
-      display: block;
     }
+
+    /* Nuage d'images autour */
+    .floating-image {
+      position: absolute;
+      width: 150px;  /* taille des images autour */
+      height: auto;
+      animation: float 20s ease-in-out infinite alternate;
+    }
+
+    /* Animation très lente et subtile */
+    @keyframes float {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      50% { transform: translate(10px, -10px) rotate(1deg); }
+      100% { transform: translate(0, 10px) rotate(0deg); }
+    }
+
+    /* Chaque image peut avoir une animation différente pour varier le mouvement */
+    .img1 { top: 10%; left: 20%; animation-duration: 25s; }
+    .img2 { top: 70%; left: 15%; animation-duration: 30s; }
+    .img3 { top: 20%; left: 75%; animation-duration: 35s; }
+    .img4 { top: 60%; left: 65%; animation-duration: 28s; }
+    .img5 { top: 40%; left: 50%; animation-duration: 32s; }
+    /* ajoute autant que tu veux */
   </style>
 </head>
 
 <body>
-  <div class="gallery">
-    <img src="images/Z63_7171.jpg" alt="">
-    <img src="images/Z63_7097.jpg" alt="">
-    <img src="images/Z63_7082.jpg" alt="">
-    <img src="images/Z63_7051.jpg" alt="">
-    <img src="images/Z63_6971.jpg" alt="">
-    <img src="images/Z63_6946.jpg" alt="">
-    <img src="images/Z63_6894.jpg" alt="">
-    <img src="images/Z63_6892.jpg" alt="">
-    <img src="images/Z63_6788.jpg" alt="">
-    <img src="images/Z63_6761.jpg" alt="">
-  </div>
+
+  <!-- GIF centré -->
+  <img class="center-gif" src="images/extrait1.gif" alt="GIF central">
+
+  <!-- Images flottantes autour -->
+  <img class="floating-image img1" src="images/Z63_7171.jpg" alt="">
+  <img class="floating-image img2" src="images/Z63_7097.jpg" alt="">
+  <img class="floating-image img3" src="images/Z63_7082.jpg" alt="">
+  <img class="floating-image img4" src="images/Z63_7051.jpg" alt="">
+  <img class="floating-image img5" src="images/Z63_6971.jpg" alt="">
+
 </body>
 </html>
