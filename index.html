@@ -2,50 +2,50 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Blue Gallery Animated</title>
+<title>Rivière Rivière</title>
 
 <style>
+
 body {
   margin: 0;
-  height: 100vh;
-  width: 100vw;
-  background-color: #3b6cb3; /* bleu plus foncé */
-  overflow: hidden;
   font-family: Helvetica, sans-serif;
+  min-height: 100vh;
+
+  /* Dégradé radial vignette */
+  background: radial-gradient(circle at center,
+    #cfe9ff 0%,
+    #6ea8dc 40%,
+    #1f4f91 100%
+  );
 }
 
-/* Titre en haut */
+/* Titre */
 h1 {
-  position: absolute;
-  top: 20px;
-  width: 100%;
   text-align: center;
-  color: #1f3d7a;
-  font-weight: 400;
   font-size: 48px;
-  margin: 0;
-  z-index: 20;
+  font-weight: 400;
+  color: #0d2f66;
+  margin-top: 40px;
+  margin-bottom: 60px;
 }
 
-/* Images et GIF flottantes */
-.floating-image {
-  position: absolute;
-  width: 280px; /* taille uniforme pour toutes */
+/* Grille propre et espacée */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  padding: 0 60px 80px 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Images et GIF */
+.gallery img {
+  width: 100%;
   height: auto;
-  animation: float 30s ease-in-out infinite alternate;
-  z-index: 5;
+  display: block;
 }
 
-.gif {
-  z-index: 6; /* toujours devant les autres images */
-}
-
-/* Mouvement subtil */
-@keyframes float {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  50% { transform: translate(10px, -10px) rotate(1deg); }
-  100% { transform: translate(0, 10px) rotate(0deg); }
-}
 </style>
 </head>
 
@@ -56,33 +56,35 @@ h1 {
 <!-- Audio -->
 <audio id="background-audio" loop>
   <source src="sonRR.wav" type="audio/wav">
-  Votre navigateur ne supporte pas l'audio.
 </audio>
 
 <script>
-// Lecture audio après interaction (clic) pour contourner le blocage autoplay
 const audio = document.getElementById('background-audio');
-audio.volume = 1;
+audio.volume = 1.0;
 
 document.body.addEventListener('click', () => {
   if (audio.paused) audio.play();
 });
 </script>
 
-<!-- Images flottantes réparties équitablement -->
-<img class="floating-image img1" src="images/Z63_7171.jpg" style="top:5%; left:5%;" alt="">
-<img class="floating-image img2" src="images/Z63_7097.jpg" style="top:5%; left:40%;" alt="">
-<img class="floating-image img3" src="images/Z63_7082.jpg" style="top:5%; left:75%;" alt="">
-<img class="floating-image img4" src="images/Z63_7051.jpg" style="top:40%; left:5%;" alt="">
-<img class="floating-image img5" src="images/Z63_6971.jpg" style="top:40%; left:40%;" alt="">
-<img class="floating-image img6" src="images/Z63_6946.jpg" style="top:40%; left:75%;" alt="">
-<img class="floating-image img7" src="images/Z63_6894.jpg" style="top:70%; left:5%;" alt="">
-<img class="floating-image img8" src="images/Z63_6892.jpg" style="top:70%; left:40%;" alt="">
-<img class="floating-image img9" src="images/Z63_6788.jpg" style="top:70%; left:75%;" alt="">
-<img class="floating-image img10" src="images/Z63_6761.jpg" style="top:55%; left:57%;" alt="">
+<div class="gallery">
 
-<!-- GIF déplacé et positionné pour ne pas chevaucher -->
-<img class="floating-image gif" src="images/extrait1.gif" style="top:25%; left:57%;" alt="GIF">
+  <!-- GIF inclus dans la grille -->
+  <img src="images/extrait1.gif" alt="GIF">
+
+  <!-- Tes 10 images -->
+  <img src="images/Z63_7171.jpg" alt="">
+  <img src="images/Z63_7097.jpg" alt="">
+  <img src="images/Z63_7082.jpg" alt="">
+  <img src="images/Z63_7051.jpg" alt="">
+  <img src="images/Z63_6971.jpg" alt="">
+  <img src="images/Z63_6946.jpg" alt="">
+  <img src="images/Z63_6894.jpg" alt="">
+  <img src="images/Z63_6892.jpg" alt="">
+  <img src="images/Z63_6788.jpg" alt="">
+  <img src="images/Z63_6761.jpg" alt="">
+
+</div>
 
 </body>
 </html>
