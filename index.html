@@ -19,17 +19,15 @@ body {
   );
 }
 
-/* Titre */
-h1 {
-  text-align: center;
-  font-size: 48px;
-  font-weight: 400;
-  color: #0d2f66;
-  margin-top: 40px;
-  margin-bottom: 60px;
+/* Logo */
+.logo {
+  display: block;
+  margin: 60px auto 60px auto;
+  width: 400px; /* taille du logo */
+  height: auto;
 }
 
-/* Grille propre et espacée */
+/* Grille propre */
 .gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -39,7 +37,6 @@ h1 {
   margin: 0 auto;
 }
 
-/* Images et GIF */
 .gallery img {
   width: 100%;
   height: auto;
@@ -51,28 +48,29 @@ h1 {
 
 <body>
 
-<h1>Rivière Rivière</h1>
+<!-- Logo -->
+<img class="logo" src="images/RRLOGO.png" alt="RR Logo">
 
 <!-- Audio -->
-<audio id="background-audio" loop>
+<audio id="background-audio" loop preload="auto">
   <source src="sonRR.wav" type="audio/wav">
 </audio>
 
 <script>
-const audio = document.getElementById('background-audio');
+const audio = document.getElementById("background-audio");
 audio.volume = 1.0;
 
-document.body.addEventListener('click', () => {
-  if (audio.paused) audio.play();
-});
+function startAudio() {
+  audio.play().catch(() => {});
+  document.removeEventListener("click", startAudio);
+}
+
+document.addEventListener("click", startAudio);
 </script>
 
 <div class="gallery">
 
-  <!-- GIF inclus dans la grille -->
-  <img src="images/extrait1.gif" alt="GIF">
-
-  <!-- Tes 10 images -->
+  <img src="images/extrait1.gif" alt="">
   <img src="images/Z63_7171.jpg" alt="">
   <img src="images/Z63_7097.jpg" alt="">
   <img src="images/Z63_7082.jpg" alt="">
